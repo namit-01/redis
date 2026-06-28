@@ -33,6 +33,12 @@ app.get("/get", async (req, res) => {
     return res.json(user);
   }
 });
+app.get("/getw", async (req, res) => {
+  try {
+    const user = await User.find({});
+    return res.json(user);
+  } catch (err) {}
+});
 app.post("/create", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.create({ email, password });
